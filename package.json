@@ -1,0 +1,25 @@
+{
+  "name": "spry-tools",
+  "version": "0.1.0",
+  "description": "spry tools",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangcylive/spry-tools.git"
+  },
+  "keywords": [
+    "tools"
+  ],
+  "author": {
+    "name": "wangchunyang",
+    "email": "wangcylive@outlook.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wangcylive/spry-tools/issues"
+  },
+  "homepage": "https://github.com/wangcylive/spry-tools#readme"
+}
