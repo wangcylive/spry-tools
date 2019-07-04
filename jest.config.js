@@ -20,7 +20,7 @@ module.exports = {
     "node"
   ],
   roots: [
-    "<rootDir>/tests/"
+    "<rootDir>"
   ],
   moduleDirectories: [
     "node_modules",
@@ -31,8 +31,8 @@ module.exports = {
   },
   testEnvironment: "node",
   testMatch: [
-    "**/*.js?(x)"
-    // "**/__tests__/**/*.js?(x)",
+    // "**/*.js?(x)",
+    "**/__tests__/**/*.js?(x)"
     // "**/?(*.)+(spec|test).js?(x)"
   ],
   transform: {

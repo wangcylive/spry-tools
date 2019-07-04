@@ -1,4 +1,4 @@
-import urlRegExp from '@/tools/url-regexp'
+import urlRegExp from '../url-regexp'
 
 test('urlRegExp', () => {
   const url1 = 'www.baidu.com'

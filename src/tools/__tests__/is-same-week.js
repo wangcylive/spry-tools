@@ -1,4 +1,4 @@
-import isSameWeek from '@/tools/is-same-week'
+import isSameWeek from '../is-same-week'
 
 test('isSameWeek', () => {
   const date1 = new Date(2019, 6, 1).getTime()
