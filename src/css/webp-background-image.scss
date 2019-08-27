@@ -1,0 +1,7 @@
+@mixin webpBackgroundImage($url) {
+  background-image: url($url);
+
+  @at-root :global(html.webp) & {
+    background-image: url($url + '.webp');
+  }
+}
