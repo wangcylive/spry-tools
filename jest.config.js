@@ -3,40 +3,39 @@
 
 module.exports = {
   clearMocks: true,
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: [
-    "\\\\node_modules\\\\"
+    '\\\\node_modules\\\\',
   ],
   coverageReporters: [
-    "json",
-    "text",
-    "lcov",
-    "clover"
+    'json',
+    'text',
+    'lcov',
+    'clover',
   ],
   moduleFileExtensions: [
-    "js",
-    "json",
-    "jsx",
-    "node"
+    'js',
+    'json',
+    'jsx',
+    'node',
   ],
   roots: [
-    "<rootDir>"
+    '<rootDir>',
   ],
   moduleDirectories: [
-    "node_modules",
-    "src"
+    'node_modules',
+    'src',
   ],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1"
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
-  testEnvironment: "node",
+  testEnvironment: 'node',
   testMatch: [
-    // "**/*.js?(x)",
     "**/__tests__/**/*.js?(x)"
     // "**/?(*.)+(spec|test).js?(x)"
   ],
   transform: {
-    "^.+\\.jsx?$": "babel-jest"
+    '^.+\\.jsx?$': 'babel-jest',
   },
-  verbose: true
-};
+  verbose: true,
+}
