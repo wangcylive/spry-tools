@@ -1,14 +1,14 @@
 import { ChangeEvent, useState } from 'react'
 
-export type Modify = 'trim' | 'number' | any
+export type Modify = 'trim' | 'number'
 
 /**
  * onChange Event state
  * @param initialState
  * @param modify
  */
-const useChangeEventState = (initialState: any, modify: Modify):
-  [ string | number, (event: ChangeEvent) => any, any ] => {
+const useChangeEventState = <T>(initialState: any, modify?: Modify):
+  [ T, (event: ChangeEvent) => any, any ] => {
   const [ value, setValue ] = useState(initialState)
   const changeEvent = (event: ChangeEvent<HTMLInputElement>) => {
     let value: string | number = event.target.value
