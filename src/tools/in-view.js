@@ -26,7 +26,7 @@ export function verticalInView (node, parentsRect, threshold = 100) {
  * @param threshold {Number} 判断阈值
  * @return {boolean}
  */
-export function horizatalInView (node, parentsRect, threshold = 100) {
+export function horizontalInView (node, parentsRect, threshold = 100) {
   if (!node || (parentsRect.left === 0 || parentsRect.right === 0)) {
     return false
   }
