@@ -5,7 +5,7 @@
 
 const u = navigator.userAgent
 
-export default {
+const browser = {
   mobile: /Mobile|Android|Symbian/i.test(u),
   android: /Android|Adr/i.test(u),
   ios: /iPhone|iPad|iPod/i.test(u),
@@ -21,3 +21,5 @@ export default {
   ie11: /Trident\/7\.0/i.test(u),
   edge: /Edge/i.test(u)
 }
+
+export default browser
