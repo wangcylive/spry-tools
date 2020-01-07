@@ -13,7 +13,7 @@ const browser = {
   windowsPhone: /Windows Phone/i.test(u),
   blankBerry: /BB/i.test(u),
   weChat: /MicroMessenger/i.test(u),
-  qq: /MQQBrowser/i.test(u),
+  qq: /QQ/i.test(u),
   uc: /UCBrowser/i.test(u),
   chrome: /Chrome\/[\d\\.]+ Mobile Safari\/[\d\\.]+$/i.test(u),
   firefox: /Firefox/i.test(u),
