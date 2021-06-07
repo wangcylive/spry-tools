@@ -17,6 +17,8 @@ module.exports = {
     'js',
     'json',
     'jsx',
+    'ts',
+    'tsx',
     'node',
   ],
   roots: [
@@ -31,11 +33,11 @@ module.exports = {
   },
   testEnvironment: 'node',
   testMatch: [
-    "**/__tests__/**/*.js?(x)"
+    "**/__tests__/**/*.(j|t)s?(x)"
     // "**/?(*.)+(spec|test).js?(x)"
   ],
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.(j|t)sx?$': 'babel-jest',
   },
   verbose: true,
 }

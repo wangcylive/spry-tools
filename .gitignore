@@ -1,4 +1,5 @@
 .*
 !.gitignore
 !.babelrc
+__snapshots__
 node_modules
