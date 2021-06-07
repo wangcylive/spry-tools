@@ -29,7 +29,7 @@
     "@babel/polyfill": "^7.2.5",
     "@hot-loader/react-dom": "npm:@hot-loader/react-dom",
     "antd": "^3.22.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "core-js": "3.2.1",
     "exif-js": "^2.3.0",
