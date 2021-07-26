@@ -4,18 +4,12 @@
  * @param wait
  * @param scope
  */
-function debounce(fn: (args?: any) => any, wait: number, scope?: any) {
+function debounce(fn: (args?: any) => any, wait: number, scope: any = null) {
   let timer = -1
-  return function () {
+  return function (...rest: any[]) {
     clearTimeout(timer)
     timer = window.setTimeout(() => {
-      if (scope) {
-        // eslint-disable-next-line prefer-rest-params
-        fn.call(scope, ...arguments)
-      } else {
-        // eslint-disable-next-line prefer-rest-params
-        fn(...arguments)
-      }
+      fn.apply(scope, rest)
     }, wait)
   }
 }

@@ -8,5 +8,8 @@ test('compareVersion', () => {
   expect(compareVersion('2.0', '1.9.9.9')).toBe(1)
   expect(compareVersion('1.10.0', '1.9.39.9')).toBe(1)
 
+  expect(compareVersion('2.030', '2.029.99')).toBe(1)
+  expect(compareVersion('2.03', '2.030')).toBe(-1)
+
   expect(compareVersion('v1.0.0', '1.0.1')).toBe(-1)
 })

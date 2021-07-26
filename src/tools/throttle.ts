@@ -4,18 +4,12 @@
  * @param delay
  * @param scope
  */
-function throttle(fun: (args?: any) => any, delay: number, scope?: any) {
+function throttle(fun: (args?: any) => any, delay: number, scope: any = null) {
   let lastTime = 0
-  return function () {
+  return function (...rest: any[]) {
     const nowTime = Date.now()
     if (nowTime - lastTime > delay) {
-      if (scope) {
-        // eslint-disable-next-line prefer-rest-params
-        fun.call(scope, ...arguments)
-      } else {
-        // eslint-disable-next-line prefer-rest-params
-        fun(...arguments)
-      }
+      fun.apply(scope, rest)
       lastTime = nowTime
     }
   }
