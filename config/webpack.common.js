@@ -1,13 +1,15 @@
 const path = require('path')
-const htmlWebpackPlugin = require('./html-conf')
-const entry = require('./main-conf')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = (mode, env) => {
-  const { getCssLoader, getSassLoader, getLessLoader, getFontOptions, getImgOptions } = require('./rules-conf')(mode, env)
+module.exports = () => {
+  const {getCssLoader, getSassLoader, getLessLoader, getFontOptions, getImgOptions} = require('./rules-conf')()
 
   return {
     context: path.resolve(__dirname, '..'),
-    entry,
+    mode: process.env.NODE_ENV,
+    target: 'web',
+    entry: './src/index.ts',
     module: {
       rules: [
         {
@@ -16,31 +18,40 @@ module.exports = (mode, env) => {
           loader: 'babel-loader',
         },
         {
-          test: /\.module\.css$/,
-          use: getCssLoader(true)
-        },
-        {
           test: /\.css$/,
-          exclude: /\.module\.css$/,
-          use: getCssLoader()
-        },
-        {
-          test: /\.module\.s[ac]ss$/,
-          use: getSassLoader(true)
+          oneOf: [
+            {
+              resourceQuery: /module/,
+              use: getCssLoader(true),
+            },
+            {
+              use: getCssLoader(),
+            },
+          ],
         },
         {
           test: /\.s[ac]ss$/,
-          exclude: /\.module\.s[ac]ss$/,
-          use: getSassLoader()
-        },
-        {
-          test: /\.module\.less$/,
-          use: getLessLoader(true)
+          oneOf: [
+            {
+              resourceQuery: /module/,
+              use: getSassLoader(true),
+            },
+            {
+              use: getSassLoader(),
+            },
+          ],
         },
         {
           test: /\.less$/,
-          exclude: /\.module\.less$/,
-          use: getLessLoader()
+          oneOf: [
+            {
+              resourceQuery: /module/,
+              use: getLessLoader(true),
+            },
+            {
+              use: getLessLoader(),
+            },
+          ],
         },
         {
           // 处理图片文件
@@ -58,10 +69,9 @@ module.exports = (mode, env) => {
     },
 
     resolve: {
-      extensions: [ '.js', '.jsx', '.tsx', '.ts', '.json' ],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
 
       alias: {
-        'react-dom': '@hot-loader/react-dom',
         '@': path.resolve(__dirname, '../src'),
       },
     },
@@ -77,16 +87,27 @@ module.exports = (mode, env) => {
       },
       splitChunks: {
         cacheGroups: {
-          vendors: {
+          defaultVendors: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             priority: -20,
-            chunks: 'all'
+            chunks: 'all',
           },
         },
       },
     },
 
-    plugins: [ ...htmlWebpackPlugin ],
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        filename: 'index.html',
+        chunks: [ 'manifest', 'vendors', 'index' ]
+      }),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        },
+      }),
+    ],
   }
 }

@@ -1,5 +1,10 @@
 .*
 !.gitignore
 !.babelrc
+!.prettierrc
+!.browserslistrc
+!.editorconfig
+!.eslintrc.js
+!.eslintignore
 __snapshots__
 node_modules

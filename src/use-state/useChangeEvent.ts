@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import {ChangeEvent, Dispatch, useState} from 'react'
 
 export type Modify = 'trim' | 'number'
 
@@ -7,9 +7,11 @@ export type Modify = 'trim' | 'number'
  * @param initialState
  * @param modify
  */
-const useChangeEventState = <T>(initialState: any, modify?: Modify):
-  [ T, (event: ChangeEvent) => any, any ] => {
-  const [ value, setValue ] = useState(initialState)
+function useChangeEvent<T>(
+  initialState: T | (() => T),
+  modify?: Modify,
+): [T, (event: ChangeEvent) => void, Dispatch<T>] {
+  const [value, setValue] = useState(initialState)
   const changeEvent = (event: ChangeEvent<HTMLInputElement>) => {
     let value: string | number = event.target.value
     if (modify === 'trim') {
@@ -19,7 +21,7 @@ const useChangeEventState = <T>(initialState: any, modify?: Modify):
     }
     setValue(value)
   }
-  return [ value, changeEvent, setValue ]
+  return [value, changeEvent, setValue]
 }
 
-export default useChangeEventState
+export default useChangeEvent
