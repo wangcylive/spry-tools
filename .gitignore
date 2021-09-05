@@ -1,5 +1,6 @@
 .*
 !.gitignore
 !.babelrc
+!.prettierrc
 __snapshots__
 node_modules
