@@ -82,7 +82,10 @@ const domainsArr = [
 const port = '(?::(?:[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]{1}|6553[0-5]))?'
 const other = '[-a-zA-Z0-9%_+.~#?&/=]*'
 
-export const safeRegExp = new RegExp(`${protocol}${domainsArr[ 0 ]}\\b${other}`, 'g')
-const regExp = new RegExp(`${protocol}(?:${domainsArr.join('|')})\\b${port}\\b${other}`, 'g')
+export const safeUrlRegExp = new RegExp(`${protocol}${domainsArr[ 0 ]}\\b${other}`, 'g')
+export const exactMatchSafeUrlRegExp = new RegExp(`^${safeUrlRegExp.source}$`)
 
-export default regExp
+const urlRegExp = new RegExp(`${protocol}(?:${domainsArr.join('|')})\\b${port}\\b${other}`, 'g')
+export const exactMatchUrlRegExp = new RegExp(`^${urlRegExp.source}$`)
+
+export default urlRegExp
