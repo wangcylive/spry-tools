@@ -1,6 +1,5 @@
 /**
  * 浏览器检测
- * Android 360 浏览器 userAgent 和 Chrome 一样, 猎豹,百度等等这些浏览器会在后面增加标识, 用这个特点区分
  */
 
 const u = navigator.userAgent
@@ -15,7 +14,8 @@ const browser = {
   weChat: /MicroMessenger/i.test(u),
   qq: /QQ/i.test(u),
   uc: /UCBrowser/i.test(u),
-  chrome: /Chrome\/[\d\\.]+ Mobile Safari\/[\d\\.]+$/i.test(u),
+  chrome: /Chrome/i.test(u) && /Safari/i.test(u),
+  safari: /Safari/i.test(u) && !/Chrome/i.test(u),
   firefox: /Firefox/i.test(u),
   ie: /MSIE/i.test(u),
   ie11: /Trident\/7\.0/i.test(u),
