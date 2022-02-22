@@ -101,7 +101,7 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: 'index.html',
-        chunks: [ 'manifest', 'vendors', 'index' ]
+        chunks: [ 'manifest', 'vendors', 'main' ]
       }),
       new webpack.DefinePlugin({
         'process.env': {
