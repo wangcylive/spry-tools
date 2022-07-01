@@ -21,10 +21,10 @@ export function hex2rgb(hex: string, alphaFront?: boolean): string {
   }
   const value = hex.trim().substring(1)
   if (value.length === 6 || value.length === 8) {
-    return getRgba.apply(null, value.split(/(?=(?:\B\w{2})+$)/).map((val) => parseInt(val, 16)))
+    return getRgba(...value.split(/(?=(?:\B\w{2})+$)/).map((val) => parseInt(val, 16)))
   }
   if (value.length === 3) {
-    return getRgba.apply(null, value.split(/\B/).map((val) => parseInt(val + val, 16)))
+    return getRgba(...value.split(/\B/).map((val) => parseInt(val + val, 16)))
   }
   return ''
 }
