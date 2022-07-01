@@ -11,6 +11,7 @@ test('hex to rgb', () => {
   expect(hex2rgb('#ffff')).toBe('')
   expect(hex2rgb('#99')).toBe('')
   expect(hex2rgb('#996688F9', true)).toBe('rgba(102, 136, 249, 0.6)')
+  expect(hex2rgb('#4c6bff', true)).toBe('rgb(76, 107, 255)')
 })
 
 test('rgb to hex', () => {

@@ -9,7 +9,7 @@ export function hex2rgb(hex: string, alphaFront?: boolean): string {
   }
   const getRgba = (...rest: number[]) => {
     let r, g, b, a
-    if (alphaFront) {
+    if (alphaFront && rest.length >= 4) {
       [a, r, g, b] = rest
     } else {
       [r, g, b, a] = rest
@@ -19,7 +19,7 @@ export function hex2rgb(hex: string, alphaFront?: boolean): string {
     }
     return `rgb(${r}, ${g}, ${b})`
   }
-  const value = hex.trim().substr(1)
+  const value = hex.trim().substring(1)
   if (value.length === 6 || value.length === 8) {
     return getRgba.apply(null, value.split(/(?=(?:\B\w{2})+$)/).map((val) => parseInt(val, 16)))
   }
