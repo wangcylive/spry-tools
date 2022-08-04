@@ -38,7 +38,7 @@ export function rgb2hex(rgb: string, alphaFront?: boolean): string {
   const match = rgb.trim().match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d?\.?\d+))?\)$/i)
   if (match) {
     const [, r, g, b, a] = match
-    const hex = [r, g, b].map((val) => Math.min(255, Number(val)).toString(16)).join('')
+    const hex = [r, g, b].map((val) => Math.min(255, Number(val)).toString(16).padStart(2, '0')).join('')
     let alpha = ''
     if (a !== undefined) {
       const alphaNum = Math.round(Number(a) * 255)

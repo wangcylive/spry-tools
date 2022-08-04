@@ -23,5 +23,6 @@ test('rgb to hex', () => {
   expect(rgb2hex('rgba(153, 190, 241, 0.93)')).toBe('#99bef1ed')
   expect(rgb2hex('rgba(153, 190, 241, 1)')).toBe('#99bef1')
   expect(rgb2hex('rgba(102, 136, 249, 0.6)', true)).toBe('#996688f9')
+  expect(rgb2hex('rgb(1, 1, 1)')).toBe('#010101')
   // expect(rgb2hex('#9999')).toBe('')
 })
