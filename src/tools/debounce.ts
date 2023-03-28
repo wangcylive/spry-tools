@@ -4,12 +4,12 @@
  * @param wait
  * @param scope
  */
-function debounce(fn: (args?: any) => any, wait: number, scope: any = null) {
+function debounce(fn: (...items: any[]) => any, wait: number, scope: any = null) {
   let timer = -1
-  return function (...rest: any[]) {
+  return function (...items: any[]) {
     clearTimeout(timer)
-    timer = window.setTimeout(() => {
-      fn.apply(scope, rest)
+    timer = window.setTimeout(function () {
+      fn.apply(scope, items)
     }, wait)
   }
 }

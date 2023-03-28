@@ -40,3 +40,10 @@
     background-color: hsla(0, 0%, 0%, .6);
   }
 }
+
+// 滚动条占据位置
+.scroll {
+  overflow-y: auto;
+  overflow-y: overlay; // 兼容，滚动条绘制在内容之上，而不是占据空间
+  scrollbar-gutter: stable; // 滚动条保留空间
+}

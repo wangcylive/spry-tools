@@ -1,15 +1,15 @@
 /**
  * 函数节流
- * @param fun
+ * @param fn
  * @param delay
  * @param scope
  */
-function throttle(fun: (args?: any) => any, delay: number, scope: any = null) {
+function throttle(fn: (...items: any[]) => any, delay: number, scope: any = null) {
   let lastTime = 0
-  return function (...rest: any[]) {
+  return function (...items: any[]) {
     const nowTime = Date.now()
     if (nowTime - lastTime > delay) {
-      fun.apply(scope, rest)
+      fn.apply(scope, items)
       lastTime = nowTime
     }
   }
